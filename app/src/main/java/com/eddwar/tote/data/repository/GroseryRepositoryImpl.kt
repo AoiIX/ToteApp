@@ -5,11 +5,18 @@ import com.eddwar.tote.domain.model.Grosery
 import com.eddwar.tote.domain.repository.GroseryRepository
 
 class GroseryRepositoryImpl (
-    private val groseryDao: GroseryDao
-    ): GroseryRepository{
+    private  val groseryDao: GroseryDao
+): GroseryRepository{
     override fun getGroseriesFromRoom() = groseryDao.getGroseries()
     override fun addGroseryToRoom(grosery: Grosery) = groseryDao.addGrosery(grosery)
-    //getGrosery
-    //updateGrosery
-    //deleteGrosery
-    }
+
+    override fun getGroseryFromRoom(id: Int) = groseryDao.getGrosery(id)
+
+    override fun updateGroseryInRoom(grosery: Grosery) =
+        groseryDao.updateGrosery(grosery)
+
+    override fun deleteGroseryFromRoom(grosery: Grosery) =
+        groseryDao.deleteGrosery(grosery)
+
+
+}
